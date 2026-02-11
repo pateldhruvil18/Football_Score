@@ -15,21 +15,33 @@ import {
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 h-screen bg-linear-to-b from-[#1c1c1c] to-[#121212] p-4 flex flex-col text-white">
+    <aside
+      className="
+        hidden
+        md:flex
+        w-64
+        h-screen
+        bg-linear-to-b from-[#1c1c1c] to-[#121212]
+        p-4
+        flex-col
+        text-white
+        overflow-y-auto
+      "
+    >
       <h1 className="text-xl font-bold mb-6">
         FOOTBALL<span className="text-lime-400 italic">SHURU</span>
       </h1>
 
+      {/* Search */}
       <div className="relative mb-5">
         <input
           placeholder="Search"
           className="w-full bg-[#2a2a2a] rounded-lg px-10 py-2 text-sm outline-none"
         />
-        <span className="absolute left-3 top-2.5 text-gray-400">
-          🔍
-        </span>
+        <span className="absolute left-3 top-2.5 text-gray-400">🔍</span>
       </div>
 
+      {/* Main Menu */}
       <nav className="space-y-1 text-sm">
         <MenuItem icon={<Home size={18} />} label="Home" active />
         <MenuItem icon={<Trophy size={18} />} label="Leader Board" />
@@ -53,7 +65,7 @@ export default function Sidebar() {
 
       {/* Bottom Menu */}
       <nav className="space-y-1 text-sm">
-        <MenuItem icon={<Settings />} label="Settings" />
+        <MenuItem icon={<Settings size={18} />} label="Settings" />
         <MenuItem icon={<Download size={18} />} label="Download The App" />
       </nav>
 

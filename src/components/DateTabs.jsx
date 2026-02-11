@@ -17,7 +17,17 @@ export default function DateTabs({ selectedDate, onDateChange }) {
   return (
     <>
       {/* DATE TABS */}
-      <div className="flex items-center gap-2 mb-4 overflow-x-auto">
+      <div
+        className="
+          flex
+          items-center
+          gap-2
+          mb-4
+          overflow-x-auto
+          scrollbar-hide
+          py-1
+        "
+      >
         {days.map((d) => {
           const active = d.full === selectedDate;
 
@@ -25,25 +35,48 @@ export default function DateTabs({ selectedDate, onDateChange }) {
             <button
               key={d.full}
               onClick={() => onDateChange(d.full)}
-              className={`px-4 py-2 rounded-lg text-xs text-center min-w-17.5
+              className={`
+                px-3
+                sm:px-4
+                py-2
+                rounded-lg
+                text-xs
+                text-center
+                min-w-[64px]
+                shrink-0
                 ${
                   active
                     ? "border border-lime-500 text-lime-500 font-semibold"
                     : "bg-[#1e1e1e] text-white hover:bg-[#2a2a2a]"
-                }`}
+                }
+              `}
             >
               <div>{d.label}</div>
               <div className="text-sm">{d.day}</div>
               {d.isToday && (
-                <div className="text-[10px] text-lime-400">Today</div>
+                <div className="text-[10px] text-lime-400">
+                  Today
+                </div>
               )}
             </button>
           );
         })}
 
+        {/* Calendar Button */}
         <button
           onClick={() => setOpen(true)}
-          className="px-4 py-4 rounded-lg border border-lime-500 bg-[#1e1e1e] text-xs shrink-0 hover:bg-[#2a2a2a]"
+          className="
+            px-3
+            sm:px-4
+            py-2
+            rounded-lg
+            border
+            border-lime-500
+            bg-[#1e1e1e]
+            text-xs
+            shrink-0
+            hover:bg-[#2a2a2a]
+          "
         >
           📅 View Calendar
         </button>
@@ -51,13 +84,25 @@ export default function DateTabs({ selectedDate, onDateChange }) {
 
       {/* CALENDAR MODAL */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
           <div
             className="absolute inset-0 bg-black/70"
             onClick={() => setOpen(false)}
           />
 
-          <div className="relative bg-[#181818] rounded-xl p-6 w-80 border border-[#2a2a2a] shadow-xl">
+          <div
+            className="
+              relative
+              bg-[#181818]
+              rounded-xl
+              p-5
+              w-full
+              max-w-xs
+              border
+              border-[#2a2a2a]
+              shadow-xl
+            "
+          >
             <h3 className="text-sm font-semibold mb-4 text-center">
               Select Date
             </h3>
@@ -69,7 +114,18 @@ export default function DateTabs({ selectedDate, onDateChange }) {
                 onDateChange(e.target.value);
                 setOpen(false);
               }}
-              className="w-full bg-[#1e1e1e] text-white px-4 py-2 rounded-lg border border-[#2a2a2a] focus:outline-none focus:border-lime-500"
+              className="
+                w-full
+                bg-[#1e1e1e]
+                text-white
+                px-4
+                py-2
+                rounded-lg
+                border
+                border-[#2a2a2a]
+                focus:outline-none
+                focus:border-lime-500
+              "
             />
 
             <button

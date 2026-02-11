@@ -12,10 +12,24 @@ export default function RightSidebar() {
   };
 
   return (
-    <aside className="w-80 bg-[#181818] p-4 hidden lg:block overflow-y-auto">
+    <aside
+      className="
+        hidden
+        lg:flex
+        flex-col
+        w-80
+        bg-[#181818]
+        p-4
+        h-full
+        overflow-y-auto
+        shrink-0
+      "
+    >
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">Trending News</h2>
+        <h2 className="text-base xl:text-lg font-semibold">
+          Trending News
+        </h2>
         <ChevronRight className="text-lime-400" />
       </div>
 
@@ -24,7 +38,7 @@ export default function RightSidebar() {
         <img
           src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=800&q=80"
           alt="Featured news"
-          className="w-full h-40 object-cover"
+          className="w-full h-32 xl:h-40 object-cover"
         />
 
         <div className="p-3">
@@ -33,7 +47,9 @@ export default function RightSidebar() {
           </p>
 
           <div className="flex items-center justify-between mt-1">
-            <span className="text-xs text-gray-400">5 Hours Ago</span>
+            <span className="text-xs text-gray-400">
+              5 Hours Ago
+            </span>
 
             <Bookmark
               size={16}
@@ -94,12 +110,16 @@ function NewsItem({ id, title, time, image, bookmarked, onToggle }) {
       <img
         src={image}
         alt={title}
-        className="w-16 h-16 rounded-lg object-cover shrink-0"
+        className="w-14 h-14 xl:w-16 xl:h-16 rounded-lg object-cover shrink-0"
       />
 
-      <div className="flex-1">
-        <p className="text-sm font-medium leading-snug">{title}</p>
-        <p className="text-xs text-gray-400 mt-1">{time}</p>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium leading-snug truncate">
+          {title}
+        </p>
+        <p className="text-xs text-gray-400 mt-1">
+          {time}
+        </p>
       </div>
 
       <Bookmark

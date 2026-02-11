@@ -4,10 +4,18 @@ import RightSidebar from "./components/RightSidebar";
 
 export default function App() {
   return (
-    <div className="flex h-screen bg-[#121212] text-white overflow-hidden">
+    <div className="
+      flex 
+      flex-col 
+      md:flex-row 
+      h-screen 
+      bg-[#121212] 
+      text-white 
+      overflow-hidden
+    ">
       <Sidebar />
       <Home />
-      <RightSidebar/>
+      <RightSidebar />
     </div>
   );
 }

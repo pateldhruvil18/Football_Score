@@ -11,16 +11,24 @@ export default function Home() {
     dayjs().format("YYYY-MM-DD")
   );
 
-  const {
-    data,
-    isLoading,
-    isFetching,
-  } = useFixtures(selectedDate);
+  const { data, isLoading, isFetching } =
+    useFixtures(selectedDate);
 
   return (
-    // IMPORTANT: flex + full height
-    <main className="flex-1 flex flex-col p-4 bg-[#121212]">
-      {/* 🔒 FIXED (NON-SCROLLABLE) SECTION */}
+    <main
+      className="
+        flex-1
+        flex
+        flex-col
+        bg-[#121212]
+        h-full
+        min-w-0
+        px-3
+        sm:px-4
+        md:px-6
+        py-3
+      "
+    >
       <Banner />
 
       <MatchFilterBar />
@@ -31,7 +39,9 @@ export default function Home() {
       />
 
       <div className="flex items-center justify-between mb-2">
-        <h2 className="text-sm text-gray-400">Match Results</h2>
+        <h2 className="text-xs sm:text-sm text-gray-400">
+          Match Results
+        </h2>
 
         {isFetching && !isLoading && (
           <span className="text-xs text-lime-400 animate-pulse">
@@ -40,9 +50,18 @@ export default function Home() {
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto rounded-lg bg-[#1e1e1e]">
+      <div
+        className="
+          flex-1
+          overflow-y-auto
+          rounded-lg
+          bg-[#1e1e1e]
+          p-2
+          sm:p-3
+        "
+      >
         {isLoading ? (
-          <div className="flex items-center justify-center h-full text-gray-400">
+          <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             Loading matches...
           </div>
         ) : (
